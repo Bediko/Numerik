@@ -1,0 +1,5 @@
+set xrange [0:5]
+set yrange [0:5]
+plot -cos(x)+2,"data" using 1:2 w lines t 'delta t=0.1',"data2" using 1:2 w lines t 'delta t=0.05',"data3" using 1:2 w lines t 'delta t=0.025',"data4" using 1:2 w lines t 'delta t=0.0125',"data5" using 1:2 w lines t 'h/2'
+
+pause -1
