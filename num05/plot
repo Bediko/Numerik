@@ -1,0 +1,26 @@
+set log xy
+set xrange[2048:66000]
+
+set term png font ",12" linewidth 1
+set xlabel "Anzahl Eingaben"
+set ylabel "Zeit"
+set output "Zufall.png"
+
+plot 3.671858e+00-4.943762e-01*log(x)+2.307142e-04*x t 'a3+a2log(x)+a1x', \
+"test.dat" using 1:2 w points t 'zufällige Werte',\
+1.406421e-01-1.870377e-04*x+3.505953e-05*x*log(x) t 'a3+a2x+a1x*log(x)', \
+-8.833392e-02+1.587666e-04*x+7.139295e-10*x*x t 'a3+a2x+a1x*x'
+
+set term png font ",12" linewidth 1
+set xlabel "Anzahl Eingaben"
+set ylabel "Zeit"
+set output "Sortiert.png"
+plot "data" using 1:2 w points t 'sortierte Werte', \
+4.899335e+01-1.160543e-02*x+2.087784e-06*x*x t 'a3+a2x+a1x*x', \
+6.808773e+02-9.972835e-01*x+1.002498e-01*x*log(x) t 'a3+a2x+a1xlog(x)', \
+1.029366e+04-1.355386e+03*log(x)+1.944267e-01*x t 'a3+a2log(x)+a1x'
+
+
+
+
+pause -1
