@@ -1,6 +1,0 @@
-\contentsline {chapter}{\numberline {1}\discretionary {-}{}{}File \discretionary {-}{}{}Index}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}\discretionary {-}{}{}File \discretionary {-}{}{}List}{1}{section.1.1}
-\contentsline {chapter}{\numberline {2}\discretionary {-}{}{}File \discretionary {-}{}{}Documentation}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}\discretionary {-}{}{}U9.\discretionary {-}{}{}c \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{3}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{3}{subsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.1.1}main}{3}{subsubsection.2.1.1.1}
