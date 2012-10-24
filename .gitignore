@@ -1,1 +1,7 @@
 *.swp
+*.out
+core
+u*
+!u*.c
+U*
+!U*.c
