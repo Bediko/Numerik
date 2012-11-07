@@ -58,7 +58,7 @@ void jacobi(double a[N][N], double x[N], double b[N],int* iter){
 			xsum+=x[i]*x[i];
 		}
 		res=rsum/xsum;
-		printf("%12.6e\n",rsum);
+		printf("%12.6e\n",res);
 
 
 		*iter+=1;
