@@ -46,7 +46,7 @@ void jacobi(double a[N][N], double x[N], double b[N],int* iter){
 			for(int k=0;k<=N-1;k++){
 					sum+=a[j][k]*x[k];
 			}
-			r[j]=(b[j]-sum)/a[j][j];
+			r[j]=(b[j]-sum);
 		}
 
 		rsum=0;
