@@ -3,6 +3,9 @@
 #include <stdbool.h>
 #include <math.h>
 
+
+//3 iterationen: 260 240 0
+
 int M=2;
 int N=3;
 
@@ -47,10 +50,10 @@ void initialise(double matrix[M+1][N+M],double x[N+M],double c[N], double b[N],d
 }
 
 void tableau(double matrix[M+1][N+M],double x[N+M],double c[N], double b[N],double q[N]){
-	printf("\t\t|\t\t| %6.6e \t%6.6e \t%6.6e\t | %6.6e \t%6.6e\t| \t |\n",c[0],c[1],c[2],0.0,0.0);
+	printf("\t\t|\t\t| %6.6lf \t%6.6lf \t%6.6lf\t | %6.6lf \t%6.6lf\t| \t |\n",c[0],c[1],c[2],0.0,0.0);
 	printf("\tZeile\t|\tBV\t|\tM1\t \tM2\t \tM3\t | \tR1\t \t\tR2\t|   \trechts\t         | Quotient\n");
 	for(int i=0; i<M+1;i++){
-		printf("\t%i\t|\t\t|%6.6e \t%6.6e \t%6.6e\t | %6.6e \t%6.6e\t| \t%6.6e\t |\t%6.6e\t\n",i,matrix[i][0],matrix[i][1],matrix[i][2],matrix[i][3],matrix[i][4],b[i],q[i]);
+		printf("\t%i\t|\t\t|%6.6lf \t%6.6lf \t%6.6lf\t | %6.6lf \t%6.6lf\t| \t%6.6lf\t |\t%6.6lf\t\n",i,matrix[i][0],matrix[i][1],matrix[i][2],matrix[i][3],matrix[i][4],b[i],q[i]);
 	}
 	printf("\n\n");
 
@@ -73,18 +76,21 @@ void simplex(double matrix[M+1][N+M],double x[N+M],double c[N], double b[N], dou
 			if(matrix[i][ps]!=0)
 				q[i]=b[i]/matrix[i][ps];
 		}
+		tableau(matrix,x,c,b,q);
 		//Pivotzeile
-		max=0.0;
+		double min=1000000;
 		for(int i=0;i<M+1;i++){
-			if(q[i] > 0){
-				if(max < q[i]){
-					max=q[i];
+			if(q[i] > 0.0){
+				if(min > q[i]){
+					printf("%lf\n",q[i]);
+					min=q[i];
 					pz=i;
 				}
 			} 
 		}
 		//Pivotelement
 		pe=matrix[pz][ps];
+		printf("pivotzeile:%d Pivotspalte:%d Pivotelement:%lf\n",pz,ps,pe);
 		//Pivotzeile durch Pivotelement(Normierung)
 		for(int i=0; i<N+M;i++){
 			matrix[pz][i]=matrix[pz][i]/pe;
@@ -97,8 +103,9 @@ void simplex(double matrix[M+1][N+M],double x[N+M],double c[N], double b[N], dou
 		for(int i=0;i<M+1;i++){
 			if(i==pz)
 				continue;
-			quot=matrix[i][ps]/matrix[pz][ps];
-			for(int j=0;j<N;j++){
+			quot=matrix[i][ps];
+
+			for(int j=0;j<N+M;j++){
 				matrix[i][j]=matrix[i][j]-matrix[pz][j]*quot;
 			}
 			b[i]=b[i]-b[i]*quot;
